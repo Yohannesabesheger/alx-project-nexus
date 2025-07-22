@@ -165,15 +165,3 @@ ecommerce-project/
 * Participated as a **full-stack engineer** across backend and frontend domains.
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-## 📬 Contact
-
-For questions or collaboration inquiries, please reach out via GitHub Issues or contact the project maintainer.
-
----
