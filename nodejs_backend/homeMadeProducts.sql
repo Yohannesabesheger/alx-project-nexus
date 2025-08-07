@@ -1,3 +1,35 @@
+create table product(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(50),
+    descriprions varchar(500),
+    
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- 1. Categories Table
 CREATE TABLE categories (
     id INT AUTO_INCREMENT PRIMARY KEY,

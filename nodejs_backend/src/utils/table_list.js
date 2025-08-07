@@ -14,7 +14,8 @@ let table = [
     "vw_daily_revenue_summary",//12
     "vw_vendor_stock_status",//13
     "vw_pending_orders",//14
-    "vw_category_sales_summary"//15
+    "vw_category_sales_summary",//15
+    "product_details_view"//16
 
 ];
 
