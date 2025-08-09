@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'api',
-    'product'
+    'product',
+    'admin_api',
+    'customerapi',
+
 ]
 
 MIDDLEWARE = [
@@ -76,8 +80,12 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'homemade',     # Your existing DB name
+        'USER': 'homemade',       # Your PostgreSQL username
+        'PASSWORD': 'Yohannes@123', # Your PostgreSQL password
+        'HOST': 'localhost',    # Or your PostgreSQL server IP
+        'PORT': '5432',         # Default PostgreSQL port
     }
 }
 
