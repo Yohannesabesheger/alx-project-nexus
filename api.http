@@ -1,0 +1,25 @@
+GET http://127.0.0.1:8000/apic/customers/ HTTP/1.1
+
+###
+
+POST http://127.0.0.1:8000/api/customers/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0NzU3ODk1LCJpYXQiOjE3NTQ3NTc1OTUsImp0aSI6IjM2ZGYzNzc0ZWUyNDQ2OGI5OGExODFjMWFhMzljYzU4IiwidXNlcl9pZCI6IjEifQ.fPECOBoJJHaVw4Vi-U9zwvv60jZeBlcP_f61sy4CjDw
+
+{
+        "full_name": "abel",
+        "email": "besheger@gmail.com",
+        "phone": "0938948155",
+        "address": "Addis Ababa",
+        "created_at": "2025-08-16T17:34:00Z"
+    }
+###
+POST http://127.0.0.1:8000/api/token/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"iap",
+    "password":"Yohannes@123"
+}
+
+
