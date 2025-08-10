@@ -14,6 +14,7 @@ import { useNavigation } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import useFetch from "@/hooks/useFetches";
 import styles  from "../../../styles/product/list.style";
+import { LINK } from "@/constants";
 
 
 export default function ProductListScreen() {
@@ -31,7 +32,7 @@ export default function ProductListScreen() {
     onPress={() => navigation.navigate('pages/ProductDetail',{item})}
   >
     <View style={styles.card}>
-      <Image source={{ uri: item.product_image }} style={styles.image} />
+      <Image source={{ uri: LINK.baseLink+item.primary_image_url }} style={styles.image} />
       <View style={styles.cardContent}>
         <Text style={styles.title} numberOfLines={2}>
           {item.product_name}
@@ -67,9 +68,9 @@ export default function ProductListScreen() {
       ) : (
         <FlatList
           data={filteredData}
-          keyExtractor={(item) => item.id}
+          // keyExtractor={(item) => item.id}
           renderItem={renderItem}
-          numColumns={3}
+          numColumns={2}
           contentContainerStyle={styles.grid}
           columnWrapperStyle={{ justifyContent: "space-between" }}
         />

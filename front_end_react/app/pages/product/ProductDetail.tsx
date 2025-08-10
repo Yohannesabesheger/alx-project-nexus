@@ -5,7 +5,7 @@ import {
   MaterialCommunityIcons,
   SimpleLineIcons,
 } from "@expo/vector-icons";
-import { COLORS } from "@/constants";
+import { COLORS, LINK } from "@/constants";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useState } from "react";
 import pstyle from "../../../styles/product/product_details_styles";
@@ -43,7 +43,7 @@ const ProductDetail = () => {
       </View>
 
       {/* Product Image */}
-      <Image source={{ uri: item.product_image }} style={pstyle.image} />
+      <Image source={{ uri: LINK.baseLink+item.primary_image_url }} style={pstyle.image} />
 
       {/* Details Section */}
       <View style={pstyle.details}>

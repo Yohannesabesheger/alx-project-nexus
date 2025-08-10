@@ -68,3 +68,6 @@ export const SIZES = {
   fontFaceBold: 'Poppins-Bold',
 };
 
+export const LINK={
+  baseLink:'https://gojo.besheger.com/api'
+}

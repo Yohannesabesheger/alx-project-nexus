@@ -2,9 +2,11 @@ import { Image,Text, TouchableOpacity, View } from "react-native";
 import cardstyle from "../../styles/product/ProductViewCard.style";    
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { LINK } from "@/constants";
 
 const ProductCard = ({item}) => {
   const navigation = useNavigation();
+  console.log('https://gojo.besheger.com/api'+item.product_image);
 
   return (
     <TouchableOpacity 
@@ -13,7 +15,7 @@ const ProductCard = ({item}) => {
       <View style={cardstyle.container}>
             <View style={cardstyle.imageContainer}>
                 <Image
-              source={{ uri: item.product_image}}
+              source={{ uri:LINK.baseLink+item.primary_image_url}}
               style={cardstyle.image}
             />
                 </View>

@@ -8,8 +8,6 @@ import { SIZES } from "@/constants";
 
 const ProductRow = () => {
   const {data,isLoading,error}=useFetch()
-    //const product=[1,2,3,4];
-    //console.log(data)
   return (
     <View style={styles.container}>
       {isLoading?(
@@ -18,7 +16,7 @@ const ProductRow = () => {
         <Text>Something went wrong</Text>
       ):(<FlatList
       data={data}
-      keyExtractor={(item)=>item.id}
+      //keyExtractor={(item)=>item.id}
       renderItem={({item})=><ProductCard item={item}/>}
       horizontal
       contentContainerStyle={{columnGap:SIZES.small}}

@@ -29,14 +29,6 @@ const Wellcome = () => {
           onPressIn={() => naviagations.navigate("search")}
       />
       </View> 
-
-
-      {/* <View style={wellComeStyel.searchBtn}>
-        <TouchableOpacity style={wellComeStyel.searchBtn}>
-          <Ionicons name="search" size={24} color="white" />
-        </TouchableOpacity>
-      </View> */}
-      
     </View>
     </>
 
