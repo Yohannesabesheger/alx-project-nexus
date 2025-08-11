@@ -3,6 +3,7 @@ from product.models import (
     Categories, Products, Vendors, Customers,
     Inventory, ProductImages, Orders, OrderItems
 )
+from django.contrib.auth.models import User
 
 class CategoriesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,10 +22,41 @@ class VendorsSerializer(serializers.ModelSerializer):
         model = Vendors
         fields = '__all__'
 
+
 class CustomersSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(write_only=True)
+    password = serializers.CharField(write_only=True)
+    email = serializers.EmailField(write_only=True)
+    first_name = serializers.CharField(write_only=True, required=False)
+    last_name = serializers.CharField(write_only=True, required=False)
+
     class Meta:
         model = Customers
-        fields = '__all__'
+        fields = [
+            'id', 'username', 'password', 'email', 'first_name', 'last_name',
+            'phone', 'address', 'created_at'
+        ]
+        read_only_fields = ['id', 'created_at']
+
+    def create(self, validated_data):
+        username = validated_data.pop('username')
+        password = validated_data.pop('password')
+        email = validated_data.pop('email')
+        first_name = validated_data.pop('first_name', '')
+        last_name = validated_data.pop('last_name', '')
+
+        # Create the Django User
+        user = User.objects.create_user(
+            username=username,
+            password=password,
+            email=email,
+            first_name=first_name,
+            last_name=last_name
+        )
+
+        # Create the linked Customer
+        customer = Customers.objects.create(user=user, **validated_data)
+        return customer
 
 class InventorySerializer(serializers.ModelSerializer):
     product = ProductsSerializer(read_only=True)
@@ -55,7 +87,7 @@ class OrderItemsSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItems
         fields = '__all__'
-        
+
 class InventoryReportFlatSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.name')
     product_description = serializers.CharField(source='product.description', allow_null=True)
@@ -91,3 +123,4 @@ class InventoryReportFlatSerializer(serializers.ModelSerializer):
         # fallback: first image if no primary set
         first_image = ProductImages.objects.filter(product=obj.product).first()
         return first_image.image_url if first_image else None
+

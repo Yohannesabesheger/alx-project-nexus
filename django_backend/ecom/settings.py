@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*47wkujf+-s+8lu#h*m7n(^sfadgnvyx^zxzuytwrrb&zss*z+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'gojo.besheger.com',
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'product',
     'admin_api',
     'customerapi',
+    'userprofile'
 
 ]
 
@@ -139,6 +140,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 
 # Default primary key field type
