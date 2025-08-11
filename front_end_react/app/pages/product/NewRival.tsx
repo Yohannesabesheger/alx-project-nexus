@@ -68,7 +68,7 @@ export default function ProductListScreen() {
       ) : (
         <FlatList
           data={filteredData}
-          // keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id}
           renderItem={renderItem}
           numColumns={2}
           contentContainerStyle={styles.grid}

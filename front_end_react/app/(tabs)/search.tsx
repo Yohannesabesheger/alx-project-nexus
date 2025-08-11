@@ -40,7 +40,7 @@ export default function ProductSearchPage() {
        {filtered.length > 0 ? (
         <FlatList
           data={filtered}
-          keyExtractor={(item)=>item.product_id}
+          keyExtractor={(item)=>item.id}
           renderItem={renderItem}
           numColumns={2}
           columnWrapperStyle={{ justifyContent: 'space-between' }}
